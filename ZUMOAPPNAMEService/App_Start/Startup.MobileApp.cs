@@ -29,7 +29,7 @@ namespace ZUMOAPPNAMEService
             Database.SetInitializer(new ZUMOAPPNAMEInitializer());
 
             // To prevent Entity Framework from modifying your database schema, use a null database initializer
-            // Database.SetInitializer<ZUMOAPPNAMEContext>(null);
+            //Database.SetInitializer<ZUMOAPPNAMEContext>(null);
 
             MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
 

@@ -10,5 +10,7 @@ namespace ZUMOAPPNAMEService.DataObjects
 
         public string Name { get; set; }
 
+        public string Faculty { get; set; }
+
     }
 }
