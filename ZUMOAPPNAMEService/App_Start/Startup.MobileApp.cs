@@ -29,7 +29,8 @@ namespace ZUMOAPPNAMEService
             Database.SetInitializer(new ZUMOAPPNAMEInitializer());
 
             // To prevent Entity Framework from modifying your database schema, use a null database initializer
-            Database.SetInitializer<ZUMOAPPNAMEContext>(null);      //THis used to be commented. Uncommenting it made the change of database fields work. See:
+            Database.SetInitializer<ZUMOAPPNAMEContext>(null);      
+            //^^^THis used to be commented. Uncommenting it made the change of database fields work. See:
             /*
              *https://social.msdn.microsoft.com/Forums/en-US/186460c0-0bf4-41ed-989e-c5aa1b2c21f8/inserting-record-into-table-error-cannot-insert-the-value-null-into-column-createdat?forum=azuremobile
              * 
@@ -77,8 +78,8 @@ namespace ZUMOAPPNAMEService
         {
             List<TodoItem> todoItems = new List<TodoItem>
             {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Name = "Jason", Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(), Name = "Jason", Text = "Second item", Complete = false },
+                new TodoItem { Id = Guid.NewGuid().ToString(), Birthday =  "11/11/11", Name = "Bob", Text = "First item", Major = "Software Engineering", Department = "ECSE", Faculty = "Engineering", Rez = "Douglas", Year = 0, Gradyear = 2023, Oncampus = true, Hometown = "Toronto", Location = "McGill Ghetto", Email = "frank.ferrie@mail.mcgill.ca", Insta = "@kerimagical", Facebook = "haha lol", Linkedin = "Sasha Aleshchenko", Snap = "@infernalburrito", Phone = "22222222", Complete = false },
+                new TodoItem { Id = Guid.NewGuid().ToString(), Birthday =  "11/11/11",  Name = "Jebediah", Text = "Second item", Major = "Mechanical Engineering", Department = "Mech", Faculty = "Engineering", Rez = "Upper", Year = 1, Gradyear = 2022, Oncampus = true, Hometown = "Vaudreil", Location = "Guy-Concordia", Email = "ben.dover@mail.mcgill.ca", Insta = "@instagram", Facebook = "zucc", Linkedin = "Aasha Sleshchenko", Snap = "@sSSS", Phone = "21421412412", Complete = false },
             };
 
             foreach (TodoItem todoItem in todoItems)

@@ -23,7 +23,7 @@ namespace ZUMOAPPNAMEService.DataObjects
 
         public int Gradyear {get; set;}
 
-        public SqlDateTime birthday {get; set;}
+        public string Birthday {get; set;}
 
         public bool Oncampus {get; set;}
 
@@ -43,7 +43,7 @@ namespace ZUMOAPPNAMEService.DataObjects
 
         public string Phone {get; set;}
 
-        public byte[] Profilepic {get; set;}
+        //public byte[] Profilepic {get; set;}
 
         public bool Complete { get; set; }
 
