@@ -29,7 +29,29 @@ namespace ZUMOAPPNAMEService
             Database.SetInitializer(new ZUMOAPPNAMEInitializer());
 
             // To prevent Entity Framework from modifying your database schema, use a null database initializer
-            // Database.SetInitializer<ZUMOAPPNAMEContext>(null);
+            Database.SetInitializer<ZUMOAPPNAMEContext>(null);      //THis used to be commented. Uncommenting it made the change of database fields work. See:
+            /*
+             *https://social.msdn.microsoft.com/Forums/en-US/186460c0-0bf4-41ed-989e-c5aa1b2c21f8/inserting-record-into-table-error-cannot-insert-the-value-null-into-column-createdat?forum=azuremobile
+             * 
+             * To change data type:
+             * 
+             *      DROP TABLE [dbo].[TodoItems];
+                    CREATE TABLE [dbo].[TodoItems](
+                    Id nvarchar(4000) PRIMARY KEY,
+                    Text nvarchar(4000) null,
+                    Complete bit not null,
+                    Version timestamp not null,
+                    CreatedAt datetimeoffset not null,
+                    UpdatedAt datetimeoffset null,
+                    Deleted bit not null,
+                    Name nvarchar(512) null
+                    );
+                    DROP TABLE [dbo].[TodoItems];
+
+             * Then uncomment the null line, change data type in TodoItem.cs and its all gucci.
+             * 
+             * It worked on Android but added significant latency.
+             */
 
             MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
@@ -55,8 +77,8 @@ namespace ZUMOAPPNAMEService
         {
             List<TodoItem> todoItems = new List<TodoItem>
             {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
+                new TodoItem { Id = Guid.NewGuid().ToString(), Name = "Jason", Text = "First item", Complete = false },
+                new TodoItem { Id = Guid.NewGuid().ToString(), Name = "Jason", Text = "Second item", Complete = false },
             };
 
             foreach (TodoItem todoItem in todoItems)
