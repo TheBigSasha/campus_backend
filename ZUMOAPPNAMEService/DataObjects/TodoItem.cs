@@ -43,9 +43,11 @@ namespace ZUMOAPPNAMEService.DataObjects
 
         public string Phone {get; set;}
 
-        //public byte[] Profilepic {get; set;}
+        public byte[] Profilepic {get; set;}
 
         public bool Complete { get; set; }
+
+        public string Courselist { get; set; }
 
 
 
