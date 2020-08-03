@@ -9,6 +9,7 @@ using ZUMOAPPNAMEService.Models;
 
 namespace ZUMOAPPNAMEService.Controllers
 {
+    /*[Authorize]*/
     public class TodoItemController : TableController<TodoItem>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
