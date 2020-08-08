@@ -25,6 +25,7 @@ namespace ZUMOAPPNAMEService
                 .UseDefaultConfiguration()
                 .ApplyTo(config);
 
+            //app.UseAppServiceAuthentication(config);
             // Use Entity Framework Code First to create database tables based on your DbContext
             Database.SetInitializer(new ZUMOAPPNAMEInitializer());
 

@@ -4,12 +4,13 @@ using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
 using Microsoft.Azure.Mobile.Server;
+using Microsoft.Owin.Security;
 using ZUMOAPPNAMEService.DataObjects;
 using ZUMOAPPNAMEService.Models;
 
 namespace ZUMOAPPNAMEService.Controllers
 {
-    /*[Authorize]*/
+    [Authorize]
     public class TodoItemController : TableController<TodoItem>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
@@ -30,7 +31,7 @@ namespace ZUMOAPPNAMEService.Controllers
         {
             return Lookup(id);
         }
-
+         
         // PATCH tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task<TodoItem> PatchTodoItem(string id, Delta<TodoItem> patch)
         {
@@ -49,5 +50,9 @@ namespace ZUMOAPPNAMEService.Controllers
         {
             return DeleteAsync(id);
         }
+
+        //TODO: Add more API things here?
+
+
     }
 }
