@@ -25,11 +25,35 @@ namespace ZUMOAPPNAMEService
                 .UseDefaultConfiguration()
                 .ApplyTo(config);
 
+            //app.UseAppServiceAuthentication(config);
             // Use Entity Framework Code First to create database tables based on your DbContext
             Database.SetInitializer(new ZUMOAPPNAMEInitializer());
 
             // To prevent Entity Framework from modifying your database schema, use a null database initializer
-            // Database.SetInitializer<ZUMOAPPNAMEContext>(null);
+            Database.SetInitializer<ZUMOAPPNAMEContext>(null);      
+            //^^^THis used to be commented. Uncommenting it made the change of database fields work. See:
+            /*
+             *https://social.msdn.microsoft.com/Forums/en-US/186460c0-0bf4-41ed-989e-c5aa1b2c21f8/inserting-record-into-table-error-cannot-insert-the-value-null-into-column-createdat?forum=azuremobile
+             * 
+             * To change data type:
+             * 
+             *      DROP TABLE [dbo].[TodoItems];
+                    CREATE TABLE [dbo].[TodoItems](
+                    Id nvarchar(4000) PRIMARY KEY,
+                    Text nvarchar(4000) null,
+                    Complete bit not null,
+                    Version timestamp not null,
+                    CreatedAt datetimeoffset not null,
+                    UpdatedAt datetimeoffset null,
+                    Deleted bit not null,
+                    Name nvarchar(512) null
+                    );
+                    DROP TABLE [dbo].[TodoItems];
+
+             * Then uncomment the null line, change data type in TodoItem.cs and its all gucci.
+             * 
+             * It worked on Android but added significant latency.
+             */
 
             MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
@@ -55,8 +79,8 @@ namespace ZUMOAPPNAMEService
         {
             List<TodoItem> todoItems = new List<TodoItem>
             {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Name = "GGG", Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(),  Name = "HHH", Text = "Second item", Complete = false },
+                new TodoItem { Id = Guid.NewGuid().ToString(), Birthday =  "11/11/11", Name = "Bob", Text = "First item", Major = "Software Engineering", Department = "ECSE", Faculty = "Engineering", Rez = "Douglas", Year = 0, Gradyear = 2023, Oncampus = true, Hometown = "Toronto", Location = "McGill Ghetto", Email = "frank.ferrie@mail.mcgill.ca", Insta = "@kerimagical", Facebook = "haha lol", Linkedin = "Sasha Aleshchenko", Snap = "@infernalburrito", Phone = "22222222", Complete = false },
+                new TodoItem { Id = Guid.NewGuid().ToString(), Birthday =  "11/11/11",  Name = "Jebediah", Text = "Second item", Major = "Mechanical Engineering", Department = "Mech", Faculty = "Engineering", Rez = "Upper", Year = 1, Gradyear = 2022, Oncampus = true, Hometown = "Vaudreil", Location = "Guy-Concordia", Email = "ben.dover@mail.mcgill.ca", Insta = "@instagram", Facebook = "zucc", Linkedin = "Aasha Sleshchenko", Snap = "@sSSS", Phone = "21421412412", Complete = false },
             };
 
             foreach (TodoItem todoItem in todoItems)
