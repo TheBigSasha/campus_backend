@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "appInsights1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/microsoft.insights/components/campusbackend",
-      "type": "appInsights.azure",
-      "connectionId": "APPINSIGHTS_INSTRUMENTATIONKEY",
-      "secretStore": "AzureAppSettings"
-    },
     "mssql1": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/campusbackend/databases/campus_v2_db",
       "type": "mssql.azure",
       "connectionId": "MS_TableConnectionString",
+      "secretStore": "AzureAppSettings"
+    },
+    "appInsights1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/microsoft.insights/components/campusbackend",
+      "type": "appInsights.azure",
+      "connectionId": "APPINSIGHTS_INSTRUMENTATIONKEY",
       "secretStore": "AzureAppSettings"
     }
   }

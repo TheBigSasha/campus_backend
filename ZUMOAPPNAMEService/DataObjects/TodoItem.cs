@@ -49,6 +49,21 @@ namespace ZUMOAPPNAMEService.DataObjects
 
         public string Courselist { get; set; }
 
+        // V ======================= NEW ======================== V
+        public string Profilepicurl { get; set; }
+
+        public string University { get; set; }
+
+        public string Privacypolicy { get; set; }
+
+        private int Privacyinteger { get; set; }
+
+        private int Age { get; set; }
+        private string Toughcourse { get; set; }
+
+
+
+
 
 
         //TODO: Add varbinary or blob for profile pic, date for bday, xml for[university, major, year], [xml for social media: instagram, facebook, snapchat, linkedin, email], xml for class list
